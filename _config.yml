@@ -1,8 +1,8 @@
-# title: 남용문고
-# description: The description of your site.
-# email: your-email@address.com
+title: 남용문고
+description: 모든 인문학의 집합.
+email: crime0916@gmail.com
 
-# author: Your name #  Default is your site title.
+author: 김남용 #  Default is your site title.
 
 # # Your social accounts.
 # social:
@@ -23,9 +23,9 @@
 # rss: "/feed.xml"
 
 # # The followings are settings for displays of your blog.
-# theme_setting:
+theme_setting:
 #   # The slides count in the slides layout. Default is 4.
-#   slides_count: 5
+slides_count: 5
 #   # The ← back URL on the top of your post page. Default is your site's home page.
 #   blog_page: "blog/index.md"
 #   # The URL on your name on the bottom of your post and page. Default is your site's home page.
