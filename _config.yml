@@ -37,15 +37,15 @@ nav_pages:
 - "about.md"
 -
 title: "External Link Title"
-#       url: "https://your-external-link.com"
+url: "https://your-external-link.com"
 #   # Every default value in the following settings is false. You can set them globally here or separately in a single post/page/chapter.
-#   code: true # Code highlight.
-#   math: true # Mathjax
-#   mermaid: true # Mermaid
+code: true # Code highlight.
+math: true # Mathjax
+mermaid: true # Mermaid
 #   #  Locales of this theme.
-#   lang:
-#     category_all: All # The first tag in the categories bar on the blog layout page. By clicking it all of your posts will be shown. Default is 'All'.
-#     blog_title: Blog # The text of ← back url on the top of the post layout.  Default is 'Home'.
+lang:
+category_all: All # The first tag in the categories bar on the blog layout page. By clicking it all of your posts will be shown. Default is 'All'.
+blog_title: Blog # The text of ← back url on the top of the post layout.  Default is 'Home'.
 #     # The locales of the comment controls.
 comment:
 user: "昵称"
