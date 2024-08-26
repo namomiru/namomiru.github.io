@@ -92,12 +92,32 @@
   color: #333; /* 텍스트 색상 */
 }
 
+/* 전체 페이지 레이아웃 설정 */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 전체 페이지 높이 설정 */
+  margin: 0; /* 기본 여백 제거 */
+}
+
+/* 페이지 콘텐츠 스타일 */
+body > *:not(.search-container) {
+  flex: 1; /* 콘텐츠가 남은 공간을 차지하게 함 */
+}
+
+/* 검색 컨테이너 스타일 */
+.search-container {
+  margin-top: auto; /* 페이지 하단에 배치 */
+  padding: 20px;
+  text-align: center;
+}
+
 /* 검색 입력 필드 스타일 */
 #search-input {
   width: 80%;
   padding: 10px;
-  margin: 20px 0;
   font-size: 16px;
+  margin-right: 10px; /* 버튼과의 간격 조정 */
 }
 
 /* 검색 버튼 스타일 */
