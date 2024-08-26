@@ -1,12 +1,13 @@
+/* 코드 하이라이팅 테마 (Tomorrow) */
 /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
 
-/* Tomorrow Comment */
+/* 주석과 인용문 스타일 */
 .hljs-comment,
 .hljs-quote {
   color: #8e908c;
 }
 
-/* Tomorrow Red */
+/* 빨간색 스타일 (변수, 태그, 삭제 등) */
 .hljs-variable,
 .hljs-template-variable,
 .hljs-tag,
@@ -18,7 +19,7 @@
   color: #c82829;
 }
 
-/* Tomorrow Orange */
+/* 주황색 스타일 (숫자, 내장 함수 등) */
 .hljs-number,
 .hljs-built_in,
 .hljs-builtin-name,
@@ -30,12 +31,12 @@
   color: #f5871f;
 }
 
-/* Tomorrow Yellow */
+/* 노란색 스타일 (속성) */
 .hljs-attribute {
   color: #eab700;
 }
 
-/* Tomorrow Green */
+/* 녹색 스타일 (문자열, 기호 등) */
 .hljs-string,
 .hljs-symbol,
 .hljs-bullet,
@@ -43,18 +44,19 @@
   color: #718c00;
 }
 
-/* Tomorrow Blue */
+/* 파란색 스타일 (제목, 섹션) */
 .hljs-title,
 .hljs-section {
   color: #4271ae;
 }
 
-/* Tomorrow Purple */
+/* 보라색 스타일 (키워드, 선택자 태그) */
 .hljs-keyword,
 .hljs-selector-tag {
   color: #8959a8;
 }
 
+/* 코드 블록 기본 스타일 */
 .hljs {
   display: block;
   overflow-x: auto;
@@ -63,10 +65,29 @@
   padding: 0.5em;
 }
 
+/* 이탤릭체 스타일 */
 .hljs-emphasis {
   font-style: italic;
 }
 
+/* 굵은 글씨 스타일 */
 .hljs-strong {
   font-weight: bold;
+}
+
+/* 블로그 포스트 제목 박스 스타일 */
+.post__title-box {
+  background-color: #f0f0f0; /* 박스 배경색 */
+  padding: 10px 15px; /* 제목 주위의 여백 */
+  border: 1px solid #ddd; /* 박스 테두리 */
+  display: inline-block; /* 제목 길이에 맞게 박스 크기 조절 */
+  border-radius: 4px; /* 모서리 둥글게 (옵션) */
+  margin-bottom: 15px; /* 제목 박스와 다른 요소 간의 간격 */
+}
+
+/* 블로그 포스트 제목 스타일 */
+.post__title {
+  font-size: 20px; /* 제목 크기 줄이기 */
+  margin: 0; /* 제목 주위의 기본 여백 제거 */
+  color: #333; /* 텍스트 색상 */
 }
