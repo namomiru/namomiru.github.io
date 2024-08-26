@@ -94,10 +94,17 @@
 
 /* 검색 입력 필드 스타일 */
 #search-input {
-  width: 100%;
+  width: 80%;
   padding: 10px;
   margin: 20px 0;
   font-size: 16px;
+}
+
+/* 검색 버튼 스타일 */
+#search-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 /* 검색 결과 영역 스타일 */
