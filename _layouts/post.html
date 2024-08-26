@@ -11,7 +11,7 @@ layout: default
       <a href="{{ blog_page.url | relative_url }}" id="archiveBtn">
         <div class="post__archive_icon">
           <svg width="40" height="40">
-            <circle class="circle-progress" r="18" cy="20" cx="20"  stroke-linejoin="round" stroke-linecap="round" />
+            <circle class="circle-progress" r="18" cy="20" cx="20" stroke-linejoin="round" stroke-linecap="round" />
           </svg>
           <span class="post__archive_icon"></span>
         </div>
@@ -19,24 +19,36 @@ layout: default
       </a>
     </nav>
   </div>
+  
+  <!-- 블로그 포스트의 메인 콘텐츠 시작 -->
   <article class="post">
     <header class="post__header">
-      <h1 class="post__title">{{ page.title | escape }}</h1>
+      <!-- 제목을 사각형 박스 안에 넣기 위해 추가된 div -->
+      <div class="post__title-box">
+        <h1 class="post__title">{{ page.title | escape }}</h1>
+      </div>
       <div class="post__meta">
         <time>{{ page.date | date: "%Y-%m-%d %H:%M" }}</time>
       </div>
     </header>
+    
+    <!-- 포스트 콘텐츠 -->
     <div class="post__content content">
       {{ content | toc | img_prefix }}
     </div>
   </article>
+
+  <!-- 댓글 또는 연락처 양식 포함 -->
   {%- if site.comment.enabled -%}
-  {% include comments.html -%}
+    {% include comments.html -%}
   {%- else -%}
-  {% include contact.html -%}
+    {% include contact.html -%}
   {%- endif -%}
 </main>
+
+<!-- 코드 하이라이팅 스크립트 포함 -->
 {%- if site.theme_setting.code or page.code -%}
   <script>hljs.initHighlightingOnLoad();</script>
 {%- endif -%}
+
 {%- include footer.html -%}
