@@ -2,17 +2,19 @@
 <html lang="{{ site.locale | default: 'en' }}">
   <head>
     {%- include head.html -%}
-    <!-- 스타일 시트 링크 추가 -->
     <link rel="stylesheet" href="{{ '/assets/css/tomorrow.css' | relative_url }}">
   </head>
   <body class="body-{{ page.layout }}">
 
-    <!-- 검색 바 추가 -->
-    <input type="text" id="search-input" placeholder="Search..." onkeyup="searchPosts()">
-    <div id="search-results"></div>
-
     <!-- 페이지 콘텐츠 -->
     {{ content }}
+
+    <!-- 검색 바와 버튼을 페이지 맨 아래로 이동 -->
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="Search...">
+      <button id="search-button" onclick="searchPosts()">Search</button>
+      <div id="search-results"></div>
+    </div>
 
     <!-- 검색 기능을 위한 스크립트 추가 -->
     <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
