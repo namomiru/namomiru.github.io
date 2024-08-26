@@ -22,6 +22,9 @@ author: 김남용
 # # The RSS link of your blog.
 # rss: "/feed.xml"
 
+
+theme: jekyll-theme-persephone
+
 # # The followings are settings for displays of your blog.
 theme_setting:
 #   # The slides count in the slides layout. Default is 4.
