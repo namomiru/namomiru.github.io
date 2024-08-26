@@ -2,6 +2,15 @@
 <html lang="{{ site.locale | default: 'en' }}">
   {%- include head.html -%}
   <body class="body-{{ page.layout }}">
+
+    <!-- 검색 바 추가 -->
+    <input type="text" id="search-input" placeholder="Search..." onkeyup="searchPosts()">
+    <div id="search-results"></div>
+
+    <!-- 페이지 콘텐츠 -->
     {{ content }}
+
+    <!-- 검색 기능을 위한 스크립트 추가 -->
+    <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
   </body>
 </html>
