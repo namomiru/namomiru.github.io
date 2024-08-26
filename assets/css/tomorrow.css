@@ -91,3 +91,24 @@
   margin: 0; /* 제목 주위의 기본 여백 제거 */
   color: #333; /* 텍스트 색상 */
 }
+
+/* 검색 입력 필드 스타일 */
+#search-input {
+  width: 100%;
+  padding: 10px;
+  margin: 20px 0;
+  font-size: 16px;
+}
+
+/* 검색 결과 영역 스타일 */
+#search-results {
+  margin-top: 20px;
+}
+
+/* 개별 검색 결과 스타일 */
+.search-result {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
