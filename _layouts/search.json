@@ -1,13 +1,14 @@
----
-layout: none
----
 [
-  {% for post in site.posts %}
-    {
-      "title": "{{ post.title | escape }}",
-      "url": "{{ post.url | relative_url }}",
-      "date": "{{ post.date | date: "%Y-%m-%d" }}",
-      "content": "{{ post.content | strip_html | escape | remove: '\n' }}"
-    }{% if forloop.last %}{% else %},{% endif %}
-  {% endfor %}
+  {
+    "title": "Post Title 1",
+    "url": "/post1",
+    "content": "Content of post 1",
+    "date": "2024-08-26"
+  },
+  {
+    "title": "Post Title 2",
+    "url": "/post2",
+    "content": "Content of post 2",
+    "date": "2024-08-27"
+  }
 ]
