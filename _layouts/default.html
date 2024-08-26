@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ site.locale | default: 'en' }}">
-  {%- include head.html -%}
+  <head>
+    {%- include head.html -%}
+    <!-- 스타일 시트 링크 추가 -->
+    <link rel="stylesheet" href="{{ '/assets/css/tomorrow.css' | relative_url }}">
+  </head>
   <body class="body-{{ page.layout }}">
 
     <!-- 검색 바 추가 -->
