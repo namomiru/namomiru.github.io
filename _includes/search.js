@@ -1,66 +1,50 @@
-// 요소들 가져오기
-let searchInput = document.getElementById('search-input');
-let searchButton = document.getElementById('search-button');
-let searchResults = document.getElementById('search-results');
-let posts = [];
-
-// 페이지 로드 시 search.json에서 데이터 로드
-fetch('/search.json')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    posts = data;
-    console.log('Posts loaded:', posts); // 데이터 로드 확인
-  })
-  .catch(error => console.error('Error loading search data:', error));
-
-// 검색 버튼 클릭 시 검색 실행
-searchButton.addEventListener('click', searchPosts);
-
-// 입력 필드에서 Enter 키로 검색 실행
-searchInput.addEventListener('keyup', (event) => {
-  if (event.key === 'Enter') searchPosts(); // Enter 키로 검색 실행
-});
-
-// 검색 기능 구현
-function searchPosts() {
-  console.log('Search initiated'); // 검색 함수 호출 확인
-
-  let query = searchInput.value.toLowerCase();
-  let results = posts.filter(post => 
-    post.title.toLowerCase().includes(query) || 
-    post.content.toLowerCase().includes(query)
-  );
-
-  console.log('Results:', results); // 필터링된 결과 확인
-
-  displayResults(results);
+// search.json 파일을 비동기로 가져오기
+async function fetchSearchData() {
+  try {
+    const response = await fetch('/search.json'); // search.json 파일의 경로를 정확히 설정
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching search data:', error);
+    return [];
+  }
 }
 
-// 검색 결과를 표시하는 함수
-function displayResults(results) {
-  console.log('Displaying results:', results); // 결과 표시 확인
+// 검색 기능 구현
+async function searchPosts() {
+  const query = document.getElementById('search-input').value.toLowerCase(); // 사용자가 입력한 검색어
+  const searchResultsContainer = document.getElementById('search-results'); // 검색 결과를 표시할 요소
+  searchResultsContainer.innerHTML = ''; // 기존 검색 결과 초기화
 
-  searchResults.innerHTML = '';
+  if (!query) return; // 검색어가 없을 경우 함수 종료
 
-  if (results.length === 0) {
-    searchResults.innerHTML = '<p>No results found</p>';
+  const searchData = await fetchSearchData(); // search.json 파일에서 데이터를 가져옴
+
+  const filteredResults = searchData.filter(post => {
+    return (
+      post.title.toLowerCase().includes(query) ||
+      post.content.toLowerCase().includes(query)
+    );
+  });
+
+  // 검색 결과가 없는 경우
+  if (filteredResults.length === 0) {
+    searchResultsContainer.innerHTML = '<p>No results found.</p>';
     return;
   }
 
-  results.forEach(result => {
-    let resultItem = document.createElement('div');
+  // 검색 결과를 HTML로 표시
+  filteredResults.forEach(post => {
+    const resultItem = document.createElement('div');
     resultItem.classList.add('search-result');
-    
     resultItem.innerHTML = `
-      <h3><a href="${result.url}">${result.title}</a></h3>
-      <p>${result.date}</p>
+      <h2><a href="${post.url}">${post.title}</a></h2>
+      <p>${post.content.substring(0, 100)}...</p> <!-- 컨텐츠 미리보기 길이를 조정 -->
+      <p><em>${post.date}</em></p>
     `;
-    
-    searchResults.appendChild(resultItem);
+    searchResultsContainer.appendChild(resultItem);
   });
 }
+
+// 검색 버튼 클릭 이벤트 핸들러
+document.getElementById('search-button').addEventListener('click', searchPosts);
